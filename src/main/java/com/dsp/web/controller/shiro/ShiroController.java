@@ -1,10 +1,11 @@
-package com.dsp.web.controller;
+package com.dsp.web.controller.shiro;
 
 import com.dsp.web.common.enums.Status;
 import com.dsp.web.common.utils.EncryptUtil;
 import com.dsp.web.model.shiro.*;
 import com.dsp.web.model.vo.Response;
 import com.dsp.web.model.vo.ResponseResult;
+import com.dsp.web.service.system.LoginService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -13,6 +14,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +26,9 @@ import java.util.List;
 @RestController
 @RequestMapping(value="/shiro-api")
 public class ShiroController {
+
+    @Autowired
+    private LoginService loginService;
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public ResponseResult<LoginInfoVo> login(@RequestBody UserInfoParam userInfoParam) throws Exception {
@@ -50,63 +55,15 @@ public class ShiroController {
                 userInfo.setPassword(null);
                 userInfo.setSalt(null);
                 userInfo.setToken(subject.getSession().getId().toString());
+                userInfo.setUserName(loginName);
                 loginInfoVo.setUserInfo(userInfo);
-                //ResponseResult<LoginInfoVo> response= sysUserServiceFeign.getLoginInfoByUserId(userInfo.getUserId().toString());
-                ResponseResult<LoginInfoVo> response= new ResponseResult<>();
-                /*造假数据*/
-                userInfo.setUserName("admin");
-                response.setStatus(Status.SUCCESS);
-                List<SysRoleVo> sysRoleVoList = new ArrayList<>();
-                SysRoleVo sysRoleVo = new SysRoleVo();
-                sysRoleVo.setRoleName("管理员");
-                sysRoleVoList.add(sysRoleVo);
 
-                List<RolePermissionVo> rolePermissionVoList = new ArrayList<>();
-                RolePermissionVo rolePermissionVo1 = new RolePermissionVo();
-                rolePermissionVo1.setPermission("liuyan_add");
-                rolePermissionVo1.setResoureName("添加");
-                RolePermissionVo rolePermissionVo2 = new RolePermissionVo();
-                rolePermissionVo2.setPermission("liuyan_select");
-                rolePermissionVo2.setResoureName("查询");
-                rolePermissionVoList.add(rolePermissionVo1);
-                rolePermissionVoList.add(rolePermissionVo2);
-
-                List<SysMenuVo> sysMenuVoList = new ArrayList<>();
-                SysMenuVo sysMenuVo1 = new SysMenuVo();
-                sysMenuVo1.setId(1L);
-                sysMenuVo1.setMenuName("系统首页");
-                sysMenuVo1.setMenuIcon("el-icon-tickets");
-                sysMenuVo1.setParentId("0");
-                sysMenuVo1.setOrderBy("1");
-                sysMenuVo1.setIsShow(1);
-                sysMenuVo1.setResoure_url("index");
-                sysMenuVo1.setResoure_type("module");
-                sysMenuVo1.setPermission("index");
-                List<SysMenuVo> sysMenuVoChildList1 = new ArrayList<>();
-                SysMenuVo sysMenuVoChild1 = new SysMenuVo();
-                sysMenuVoChild1.setId(11L);
-                sysMenuVoChild1.setMenuName("首页");
-                sysMenuVoChild1.setParentId("1");
-                sysMenuVoChild1.setOrderBy("1");
-                sysMenuVoChild1.setIsShow(1);
-                sysMenuVoChild1.setResoure_type("url");
-                sysMenuVoChild1.setPermission("index");
-                sysMenuVoChildList1.add(sysMenuVoChild1);
-                sysMenuVo1.setSysMenuVoChild(sysMenuVoChildList1);
-
-                sysMenuVoList.add(sysMenuVo1);
-
-                loginInfoVo.setRolePermissionVoList(rolePermissionVoList);
-                loginInfoVo.setSysRoleVoList(sysRoleVoList);
-                loginInfoVo.setSysMenuVoList(sysMenuVoList);
-
-
-                response.setData(loginInfoVo);
-                if(ResponseResult.isSucess(response)){
-                    LoginInfoVo loginInfoDTO=response.getData();
-                    loginInfoVo.setSysRoleVoList(loginInfoDTO.getSysRoleVoList());
-                    loginInfoVo.setRolePermissionVoList(loginInfoDTO.getRolePermissionVoList());
-                    loginInfoVo.setSysMenuVoList(loginInfoDTO.getSysMenuVoList());
+                //LoginInfoVo responseRTQ= loginService.getLoginInfoByUserId(userInfo.getUserId().toString());
+                LoginInfoVo responseRTQ= loginService.getLoginInfoByUserId(null);
+                if(responseRTQ != null){
+                    loginInfoVo.setSysRoleVoList(responseRTQ.getSysRoleVoList());
+                    loginInfoVo.setRolePermissionVoList(responseRTQ.getRolePermissionVoList());
+                    loginInfoVo.setSysMenuVoList(responseRTQ.getSysMenuVoList());
                 }
                 else{
                     String errorMsg=MessageFormat.format("login.getLoginInfoByUserId.error,userid:{0}",userInfo.getUserId().toString());
