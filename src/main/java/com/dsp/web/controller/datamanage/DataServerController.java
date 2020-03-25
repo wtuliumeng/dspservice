@@ -32,6 +32,8 @@ public class DataServerController {
             if(StringUtils.isEmpty(userId)){
                 result.setStatus(Status.FAILED);
                 result.setMessage("当前用户不存在");
+                //返回数据实体
+                return result;
             }
             //查询数据总量
             Long count = dataSetsService.getDataSetsCount(dataSetsParam);
@@ -64,14 +66,20 @@ public class DataServerController {
             if(dataSetsVo==null){
                 result.setStatus(Status.FAILED);
                 result.setMessage("提交数据为空");
+                //返回数据实体
+                return result;
             }
             if(StringUtils.isEmpty(dataSetsVo.getId())){
                 result.setStatus(Status.FAILED);
                 result.setMessage("数据集标识为空");
+                //返回数据实体
+                return result;
             }
             if(StringUtils.isEmpty(dataSetsVo.getName())){
                 result.setStatus(Status.FAILED);
                 result.setMessage("数据集名称为空");
+                //返回数据实体
+                return result;
             }
             //更新创建时间和更新时间
             dataSetsVo.setCreateTime(new Date());
@@ -106,14 +114,20 @@ public class DataServerController {
             if(dataSetsVo==null){
                 result.setStatus(Status.FAILED);
                 result.setMessage("提交数据为空");
+                //返回数据实体
+                return result;
             }
             if(StringUtils.isEmpty(dataSetsVo.getName())){
                 result.setStatus(Status.FAILED);
                 result.setMessage("数据集名称为空");
+                //返回数据实体
+                return result;
             }
             if(StringUtils.isEmpty(dataSetsVo.getId())){
                 result.setStatus(Status.FAILED);
                 result.setMessage("数据集标识为空");
+                //返回数据实体
+                return result;
             }
             //更新更新时间
             dataSetsVo.setUpdateTime(new Date());
@@ -148,10 +162,14 @@ public class DataServerController {
             if(dataSetsVo==null){
                 result.setStatus(Status.FAILED);
                 result.setMessage("提交数据为空");
+                //返回数据实体
+                return result;
             }
             if(StringUtils.isEmpty(dataSetsVo.getId())){
                 result.setStatus(Status.FAILED);
                 result.setMessage("数据集标识为空");
+                //返回数据实体
+                return result;
             }
             //删除数据
             boolean flag = dataSetsService.delete(dataSetsVo.getId());
@@ -183,10 +201,14 @@ public class DataServerController {
             if(dataSetsVo==null){
                 result.setStatus(Status.FAILED);
                 result.setMessage("提交数据为空");
+                //返回数据实体
+                return result;
             }
             if(dataSetsVo.getIds()==null || dataSetsVo.getIds().size() <= 0){
                 result.setStatus(Status.FAILED);
                 result.setMessage("数据集标识为空");
+                //返回数据实体
+                return result;
             }
             //删除数据
             boolean flag = dataSetsService.deleteBatch(dataSetsVo.getIds());
