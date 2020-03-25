@@ -1,30 +1,20 @@
 package com.dsp.web.controller.simcall;
 
 import com.dsp.web.common.enums.Status;
-import com.dsp.web.model.shiro.LoginInfoVo;
-import com.dsp.web.model.shiro.UserInfo;
-import com.dsp.web.model.shiro.UserInfoParam;
+import com.dsp.web.model.simcall.SimCallTask;
+import com.dsp.web.model.simcall.SimCallTaskVo;
 import com.dsp.web.model.simcall.UserSimCertifyParam;
 import com.dsp.web.model.simcall.UserSimCertifyVo;
-import com.dsp.web.model.vo.Response;
 import com.dsp.web.model.vo.ResponseResult;
-import com.dsp.web.service.system.LoginService;
 import com.dsp.web.service.simcall.SimCallService;
-import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.subject.Subject;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.text.MessageFormat;
 
 @RestController
 @RequestMapping(value="/simcall-api")
@@ -49,6 +39,9 @@ public class SimCallController {
 
                     result.setStatus(Status.SUCCESS);
                     message = "认证成功";
+                }else{
+                    result.setStatus(Status.FAILED);
+                    message = "输入参数为空";
                 }
             } catch (IncorrectCredentialsException e) {
                 result.setStatus(Status.FAILED);
@@ -79,6 +72,72 @@ public class SimCallController {
             return result;
         }
 
+    }
+
+    /**
+     * 异步任务模拟调用
+     * ayncTaskSimCall
+     */
+    @RequestMapping(value="/asyncCall", method = RequestMethod.POST)
+    public ResponseResult<SimCallTaskVo> asyncTaskSimCall(@RequestBody SimCallTask simCallTask) throws Exception{
+        ResponseResult<SimCallTaskVo> result = new ResponseResult<>();
+        try{
+            SimCallTaskVo simCallTaskVo= new SimCallTaskVo();
+            String message="";
+            try{
+                if(simCallTask != null){
+                    simCallTaskVo = simCallService.getAsyncTask(simCallTask);
+                    result.setData(simCallTaskVo);
+                    result.setStatus(Status.SUCCESS);
+                    message = "调用成功！";
+                }
+            }catch (Exception e) {
+                result.setStatus(Status.FAILED);
+                message="登录异常";
+                //log.error(message);
+                //log.error(e.getMessage(),e);
+            }
+            result.setMessage(message);
+            return result;
+        }catch (Exception ex){
+            //log.error(ex.getMessage(),ex);
+            result.setStatus(Status.FAILED);
+            result.setMessage("执行异常,请重试");
+            return result;
+        }
+    }
+
+    /**
+     * 实时任务模拟调用
+     * ayncTaskSimCall
+     */
+    @RequestMapping(value="/syncCall", method = RequestMethod.POST)
+    public ResponseResult<SimCallTaskVo> syncTaskSimCall(@RequestBody SimCallTask simCallTask) throws Exception{
+        ResponseResult<SimCallTaskVo> result = new ResponseResult<>();
+        try{
+            SimCallTaskVo simCallTaskVo= new SimCallTaskVo();
+            String message="";
+            try{
+                if(simCallTask != null){
+                    simCallTaskVo = simCallService.getSyncTask(simCallTask);
+                    result.setData(simCallTaskVo);
+                    result.setStatus(Status.SUCCESS);
+                    message = "调用成功！";
+                }
+            }catch (Exception e) {
+                result.setStatus(Status.FAILED);
+                message="登录异常";
+                //log.error(message);
+                //log.error(e.getMessage(),e);
+            }
+            result.setMessage(message);
+            return result;
+        }catch (Exception ex){
+            //log.error(ex.getMessage(),ex);
+            result.setStatus(Status.FAILED);
+            result.setMessage("执行异常,请重试");
+            return result;
+        }
     }
 //
 //    /**
