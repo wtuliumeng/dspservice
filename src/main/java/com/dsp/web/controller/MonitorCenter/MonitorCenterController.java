@@ -39,13 +39,10 @@ public class MonitorCenterController {
             int currentPage = onSearchParam.getCurrentPage();
             int pageSize = onSearchParam.getPageSize();
 
-            System.out.println("test3");
             String message = "";
             try {
-                System.out.println("test1");
                 onSearchList = monitorCenterService.getSearchList(sqlId, name, status, currentPage, pageSize);
                 int count = monitorCenterService.getSearchCount(sqlId, name, status);
-                System.out.println("test2");
                 result.setCount(count);
                 message = "查询用户配置成功";
                 result.setDataList(onSearchList);
@@ -61,7 +58,7 @@ public class MonitorCenterController {
             System.out.println("test5");System.out.println(ex);
 
             result.setStatus(Status.FAILED);
-            result.setMessage("执行异常,请123重试");
+            result.setMessage("执行异常,请重试");
             return result;
         }
     }
