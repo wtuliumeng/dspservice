@@ -1,8 +1,11 @@
 package com.dsp.web.model.configCenter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BatchRtq {
     /* sql编号 */
-    private String sqlID;
+    private String sqlId;
     /* 调用方系统 */
     private String userName;
     /* 取数sql */
@@ -20,14 +23,24 @@ public class BatchRtq {
     /* 表名 */
     private String tableName;
     /* 数据源 */
-    private String DBSource;
+    private String dbSource;
 
-    public String getSqlID() {
-        return sqlID;
+    private List<String> sqlIds = new ArrayList<>();
+
+    public List<String> getSqlIds() {
+        return sqlIds;
     }
 
-    public void setSqlID(String sqlID) {
-        this.sqlID = sqlID;
+    public void setSqlIds(List<String> sqlIds) {
+        this.sqlIds = sqlIds;
+    }
+
+    public String getSqlId() {
+        return sqlId;
+    }
+
+    public void setSqlId(String sqlId) {
+        this.sqlId = sqlId;
     }
 
     public String getUserName() {
@@ -94,11 +107,11 @@ public class BatchRtq {
         this.tableName = tableName;
     }
 
-    public String getDBSource() {
-        return DBSource;
+    public String getDbSource() {
+        return dbSource;
     }
 
-    public void setDBSource(String DBSource) {
-        this.DBSource = DBSource;
+    public void setDbSource(String dbSource) {
+        this.dbSource = dbSource;
     }
 }
