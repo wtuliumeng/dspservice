@@ -27,7 +27,6 @@ public class MonitorCenterController {
     @RequestMapping(value = "/querySearchList",method = RequestMethod.POST)
     public ResponseResult<OnSearch> querySearchList(@RequestBody OnSearchParam onSearchParam) throws Exception {
         ResponseResult<OnSearch> result = new ResponseResult<>();
-        System.out.println("test4");
         try {
             //BatchAuth batchAuth = new BatchAuth();
             List<OnSearch> onSearchList = new ArrayList<>();
@@ -55,8 +54,6 @@ public class MonitorCenterController {
             return result;
         }
         catch (Exception ex){
-            System.out.println("test5");System.out.println(ex);
-
             result.setStatus(Status.FAILED);
             result.setMessage("执行异常,请重试");
             return result;

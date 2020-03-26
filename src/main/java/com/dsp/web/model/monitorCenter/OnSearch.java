@@ -1,5 +1,7 @@
 package com.dsp.web.model.monitorCenter;
 
+import java.util.Date;
+
 /**
  * Created by zhouyang on 2020/3/24.
  */
@@ -59,4 +61,5 @@ public class OnSearch {
     public void setState(String state) {
         this.state = state;
     }
+
 }
