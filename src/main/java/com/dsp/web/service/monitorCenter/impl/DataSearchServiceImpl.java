@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 public class DataSearchServiceImpl implements DataSearchService {
 
     @Override
-    public List<QuerySearch> getdataSearchList(String querynumber, String tasknumber, String callsystem, String resource, Date rundate, int currentPage, int pageSize) {
+    public List<QuerySearch> getdataSearchList(String querynumber, String tasknumber, String callsystem, String status, Date rundate, int currentPage, int pageSize) {
         List<QuerySearch> querySearchList = new ArrayList<>();
 
         /* 造假数据 */

@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class MonitorCenterServiceImpl implements MonitorCenterService {
     @Override
-    public List<OnSearch> getSearchList(String sqlId, String name, String status, int currentPage, int pageSize) {
+    public List<OnSearch> getSearchList(String sqlId, String name, String resource, int currentPage, int pageSize) {
         List<OnSearch> onSearchList = new ArrayList<>();
 
         /* 造假数据 */
@@ -37,7 +37,7 @@ public class MonitorCenterServiceImpl implements MonitorCenterService {
         return onSearchList;
     }
     @Override
-    public int getSearchCount(String sqlId, String name, String status) {
+    public int getSearchCount(String sqlId, String name, String resource) {
         /*造假数据*/
         return 16;
     }

@@ -34,14 +34,14 @@ public class MonitorCenterController {
             //查询参数
             String sqlId = onSearchParam.getSqlId();
             String name = onSearchParam.getName();
-            String status = onSearchParam.getStatus();
+            String resource = onSearchParam.getResource();
             int currentPage = onSearchParam.getCurrentPage();
             int pageSize = onSearchParam.getPageSize();
 
             String message = "";
             try {
-                onSearchList = monitorCenterService.getSearchList(sqlId, name, status, currentPage, pageSize);
-                int count = monitorCenterService.getSearchCount(sqlId, name, status);
+                onSearchList = monitorCenterService.getSearchList(sqlId, name, resource, currentPage, pageSize);
+                int count = monitorCenterService.getSearchCount(sqlId, name, resource);
                 result.setCount(count);
                 message = "查询用户配置成功";
                 result.setDataList(onSearchList);

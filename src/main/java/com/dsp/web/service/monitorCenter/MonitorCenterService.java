@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface MonitorCenterService {
 
-    List<OnSearch> getSearchList(String sqlId, String name, String status, int currentPage, int pageSize);
+    List<OnSearch> getSearchList(String sqlId, String name, String resource, int currentPage, int pageSize);
 
-    int getSearchCount(String sqlId, String name, String status);
+    int getSearchCount(String sqlId, String name, String resource);
 }

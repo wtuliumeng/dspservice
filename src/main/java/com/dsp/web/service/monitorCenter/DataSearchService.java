@@ -10,7 +10,7 @@ import java.util.List;
  */
 //创建接口
 public interface DataSearchService {
-    List<QuerySearch> getdataSearchList(String querynumber, String tasknumber, String callsystem, String resource, Date rundate, int currentPage, int pageSize);
+    List<QuerySearch> getdataSearchList(String querynumber, String tasknumber, String callsystem, String status, Date rundate, int currentPage, int pageSize);
 
-    int getdataSearchCount(String querynumber, String tasknumber, String callsystem, String resource, Date rundate);
+    int getdataSearchCount(String querynumber, String tasknumber, String callsystem, String status, Date rundate);
 }
