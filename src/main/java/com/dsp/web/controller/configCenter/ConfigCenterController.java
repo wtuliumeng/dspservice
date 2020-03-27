@@ -30,7 +30,7 @@ public class ConfigCenterController {
 
             //查询参数
             String userName = batchAuthQueryParam.getUserName();
-            String IPAddr = batchAuthQueryParam.getIPAddr();
+            String IPAddr = batchAuthQueryParam.getIpAddr();
             String status = batchAuthQueryParam.getStatus();
             int currentPage = batchAuthQueryParam.getCurrentPage();
             int pageSize = batchAuthQueryParam.getPageSize();

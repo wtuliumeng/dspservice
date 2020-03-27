@@ -41,7 +41,7 @@ public class ConfigCenterServiceImpl implements ConfigCenterService {
                 batchAuth.setAuthTime("" + i);
                 batchAuth.setCreateTime("" + i);
                 batchAuth.setExpireTime("" + i);
-                batchAuth.setIPAddr("ip" + i);
+                batchAuth.setIpAddr("ip" + i);
                 batchAuth.setIssuer("" + i);
                 batchAuth.setPassword("" + i);
                 batchAuth.setSalt("" + i);

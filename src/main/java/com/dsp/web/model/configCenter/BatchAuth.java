@@ -26,7 +26,7 @@ public class BatchAuth implements Serializable {
     /* 更新时间 */
     private String updateTime;
     /* 允许IP */
-    private String iPAddr;
+    private String ipAddr;
     /* 盐值 */
     private String salt;
     /* 过期时间 */
@@ -114,12 +114,12 @@ public class BatchAuth implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public String getIPAddr() {
-        return iPAddr;
+    public String getIpAddr() {
+        return ipAddr;
     }
 
-    public void setIPAddr(String iPAddr) {
-        this.iPAddr = iPAddr;
+    public void setIpAddr(String ipAddr) {
+        this.ipAddr = ipAddr;
     }
 
     public String getSalt() {

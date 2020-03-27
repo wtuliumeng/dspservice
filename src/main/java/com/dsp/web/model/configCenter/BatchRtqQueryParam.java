@@ -2,30 +2,30 @@ package com.dsp.web.model.configCenter;
 
 import com.dsp.web.model.vo.PageInfoExt;
 
-public class BatchAuthQueryParam  extends PageInfoExt {
+public class BatchRtqQueryParam extends PageInfoExt {
     private static final long serialVersionUID = 1L;
 
     /* 用户名 */
-    public String userName;
+    public String sqlId;
     /* 允许IP */
-    public String ipAddr;
+    public String dbSource;
     /* 状态 */
     public String status;
 
-    public String getUserName() {
-        return userName;
+    public String getSqlId() {
+        return sqlId;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setSqlId(String sqlId) {
+        this.sqlId = sqlId;
     }
 
-    public String getIpAddr() {
-        return ipAddr;
+    public String getDbSource() {
+        return dbSource;
     }
 
-    public void setIpAddr(String ipAddr) {
-        this.ipAddr = ipAddr;
+    public void setDbSource(String dbSource) {
+        this.dbSource = dbSource;
     }
 
     public String getStatus() {
