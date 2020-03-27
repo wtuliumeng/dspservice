@@ -15,7 +15,7 @@ public class QuerySearchParam extends PageInfoExt {
     //﻿调用方系统
     private String callsystem;
     //任务状态
-    private String resource;
+    private String status;
     //﻿运行日期
     private Date rundate;
 
@@ -43,12 +43,12 @@ public class QuerySearchParam extends PageInfoExt {
         this.callsystem = callsystem;
     }
 
-    public String getResource() {
-        return resource;
+    public String getStatus() {
+        return status;
     }
 
-    public void setResource(String resource) {
-        this.resource = resource;
+    public void setStatus(String resource) {
+        this.status = resource;
     }
 
     public Date getRundate() {

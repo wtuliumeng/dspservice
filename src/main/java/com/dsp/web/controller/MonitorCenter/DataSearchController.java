@@ -37,15 +37,15 @@ public class DataSearchController {
             String querynumber = querySearchParam.getQuerynumber();
             String tasknumber = querySearchParam.getTasknumber();
             String callsystem = querySearchParam.getCallsystem();
-            String resource=querySearchParam.getResource();
+            String status=querySearchParam.getStatus();
             Date rundate=querySearchParam.getRundate();
             int currentPage = querySearchParam.getCurrentPage();
             int pageSize = querySearchParam.getPageSize();
 
             String message = "";
             try {
-                querySearchArrayList = dataSearchService.getdataSearchList(querynumber, tasknumber, callsystem, resource,rundate,currentPage, pageSize);
-                int count = dataSearchService.getdataSearchCount(querynumber, tasknumber, callsystem, resource,rundate);
+                querySearchArrayList = dataSearchService.getdataSearchList(querynumber, tasknumber, callsystem, status,rundate,currentPage, pageSize);
+                int count = dataSearchService.getdataSearchCount(querynumber, tasknumber, callsystem, status,rundate);
                 result.setCount(count);
                 message = "查询用户配置成功";
                 result.setDataList(querySearchArrayList);
