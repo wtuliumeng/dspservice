@@ -8,7 +8,7 @@ public class BatchAuthQueryParam  extends PageInfoExt {
     /* 用户名 */
     public String userName;
     /* 允许IP */
-    public String IPAddr;
+    public String iPAddr;
     /* 状态 */
     public String status;
 
@@ -21,11 +21,11 @@ public class BatchAuthQueryParam  extends PageInfoExt {
     }
 
     public String getIPAddr() {
-        return IPAddr;
+        return iPAddr;
     }
 
-    public void setIPAddr(String IPAddr) {
-        this.IPAddr = IPAddr;
+    public void setIPAddr(String iPAddr) {
+        this.iPAddr = iPAddr;
     }
 
     public String getStatus() {

@@ -1,6 +1,10 @@
 package com.dsp.web.model.configCenter;
 
-public class BatchAuth {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public class BatchAuth implements Serializable {
     /* 用户名 */
     private String userName;
     /* 密码 */
@@ -22,11 +26,13 @@ public class BatchAuth {
     /* 更新时间 */
     private String updateTime;
     /* 允许IP */
-    private String IPAddr;
+    private String iPAddr;
     /* 盐值 */
     private String salt;
     /* 过期时间 */
     private String timeout;
+
+    private List<String> userNames = new ArrayList<>();
 
     public String getUserName() {
         return userName;
@@ -109,11 +115,11 @@ public class BatchAuth {
     }
 
     public String getIPAddr() {
-        return IPAddr;
+        return iPAddr;
     }
 
-    public void setIPAddr(String IPAddr) {
-        this.IPAddr = IPAddr;
+    public void setIPAddr(String iPAddr) {
+        this.iPAddr = iPAddr;
     }
 
     public String getSalt() {
@@ -130,5 +136,13 @@ public class BatchAuth {
 
     public void setTimeout(String timeout) {
         this.timeout = timeout;
+    }
+
+    public List<String> getUserNames() {
+        return userNames;
+    }
+
+    public void setUserNames(List<String> userNames) {
+        this.userNames = userNames;
     }
 }

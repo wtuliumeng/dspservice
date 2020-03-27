@@ -25,6 +25,16 @@ public class SelectServiceImpl implements SelectService {
             modelVoList.add(vo3);
             modelVoList.add(vo4);
         }
+        else if("2".equals(type)){
+            SelectModelVo vo1 = new SelectModelVo("李四","1","2");
+            SelectModelVo vo2 = new SelectModelVo("王五","2","2");
+            SelectModelVo vo3 = new SelectModelVo("赵六","3","2");
+            SelectModelVo vo4 = new SelectModelVo("法 外 狂 徒","4","2");
+            modelVoList.add(vo1);
+            modelVoList.add(vo2);
+            modelVoList.add(vo3);
+            modelVoList.add(vo4);
+        }
         return modelVoList;
     }
 
