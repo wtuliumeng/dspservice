@@ -72,9 +72,9 @@ public class ShiroConfig {
 
 
         // 未登录
-        shiroFilterFactoryBean.setLoginUrl("/shiro-api/unlogin");
+        shiroFilterFactoryBean.setLoginUrl("/system-api/unlogin");
         //未授权界面;
-        shiroFilterFactoryBean.setUnauthorizedUrl("/shiro-api/unauth");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/system-api/unauth");
         // 登录成功后要跳转的链接
         shiroFilterFactoryBean.setSuccessUrl("/index");
 

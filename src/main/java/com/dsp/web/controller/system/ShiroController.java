@@ -1,7 +1,6 @@
-package com.dsp.web.controller.shiro;
+package com.dsp.web.controller.system;
 
 import com.dsp.web.common.enums.Status;
-import com.dsp.web.common.utils.EncryptUtil;
 import com.dsp.web.model.shiro.*;
 import com.dsp.web.model.vo.Response;
 import com.dsp.web.model.vo.ResponseResult;
@@ -20,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping(value="/shiro-api")

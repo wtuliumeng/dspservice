@@ -1,8 +1,6 @@
-package com.dsp.web.model.admin;
-
+package com.dsp.web.model.system;
 
 import java.io.Serializable;
-
 /**
  *@Description:sys_position
  *@author root

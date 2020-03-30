@@ -1,4 +1,4 @@
-package com.dsp.web.model.admin;
+package com.dsp.web.model.system;
 
 
 import com.dsp.web.model.vo.PageInfoExt;

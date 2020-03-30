@@ -1,10 +1,13 @@
-package com.dsp.web.model.admin;
-
+package com.dsp.web.model.system;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-
-public class SysResourceParam implements Serializable {
+/**
+ * Created by Administrator on 2018/7/18.
+ */
+public class SysResourceVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -37,6 +40,19 @@ public class SysResourceParam implements Serializable {
 
     /**VERSION*/
     private Long version;
+    public static List<TreeNodeVo> ToTreeModel(List<SysResourceVo> list)
+    {
+        List<TreeNodeVo> treelist=new ArrayList<>();
+        for (SysResourceVo vo:list) {
+            TreeNodeVo treenode=new TreeNodeVo();
+            treenode.setId(vo.getId().toString());
+            treenode.setName(vo.getResoureName());
+            treenode.setParentId(vo.getParentId());
+            treelist.add(treenode);
+        }
+        return TreeNodeVo.treeBuild(treelist);
+
+    }
 
     public Long getId() {
         return id;

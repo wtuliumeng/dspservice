@@ -1,12 +1,8 @@
-package com.dsp.web.model.admin;
+package com.dsp.web.model.system;
 
+import com.dsp.web.model.vo.PageInfoExt;
 
-import java.io.Serializable;
-
-/**
- * Created by Administrator on 2018/7/18.
- */
-public class SysAclVo implements Serializable {
+public class SysRoleUserParam extends PageInfoExt {
 
     private static final long serialVersionUID = 1L;
 
@@ -16,22 +12,20 @@ public class SysAclVo implements Serializable {
     /**ROLE_ID*/
     private Long roleId;
 
-    /**RESOURE_ID*/
-    private Long resoureId;
-
-    /**ACCESSIBILITY*/
-    private Long accessibility;
+    /**TARGET_ID*/
+    private Long targetId;
 
     /**APP_ID*/
     private Long appId;
+
+    /**TARGET_TYPE*/
+    private String targetType;
 
     /**VALIDATE_STATE*/
     private String validateState;
 
     /**VERSION*/
     private Long version;
-
-    private String[] resourceids;
 
     public Long getId() {
         return id;
@@ -49,20 +43,12 @@ public class SysAclVo implements Serializable {
         this.roleId = roleId;
     }
 
-    public Long getResoureId() {
-        return resoureId;
+    public Long getTargetId() {
+        return targetId;
     }
 
-    public void setResoureId(Long resoureId) {
-        this.resoureId = resoureId;
-    }
-
-    public Long getAccessibility() {
-        return accessibility;
-    }
-
-    public void setAccessibility(Long accessibility) {
-        this.accessibility = accessibility;
+    public void setTargetId(Long targetId) {
+        this.targetId = targetId;
     }
 
     public Long getAppId() {
@@ -71,6 +57,14 @@ public class SysAclVo implements Serializable {
 
     public void setAppId(Long appId) {
         this.appId = appId;
+    }
+
+    public String getTargetType() {
+        return targetType;
+    }
+
+    public void setTargetType(String targetType) {
+        this.targetType = targetType;
     }
 
     public String getValidateState() {
@@ -87,13 +81,5 @@ public class SysAclVo implements Serializable {
 
     public void setVersion(Long version) {
         this.version = version;
-    }
-
-    public String[] getResourceids() {
-        return resourceids;
-    }
-
-    public void setResourceids(String[] resourceids) {
-        this.resourceids = resourceids;
     }
 }

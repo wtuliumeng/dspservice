@@ -1,15 +1,12 @@
-package com.dsp.web.model.admin;
-
+package com.dsp.web.model.system;
 
 import java.io.Serializable;
-
 /**
  *@Description:sys_role_user
  *@author root
  *@version 1.0,
  *@date 2018-07-06 15:17:47
  */
-
 public class SysRoleUserVo implements Serializable{
 
 	private static final long serialVersionUID = 1L;

@@ -1,5 +1,4 @@
-package com.dsp.web.model.admin;
-
+package com.dsp.web.model.system;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,6 +11,7 @@ import java.util.List;
  *@version 1.0,
  *@date 2018-07-06 09:52:41
  */
+
 public class SysOrgVo implements Serializable{
 
 	private static final long serialVersionUID = 1L;

@@ -1,8 +1,6 @@
-package com.dsp.web.model.admin;
+package com.dsp.web.model.system;
 
-
-
-import java.io.Serializable;
+import com.dsp.web.model.vo.PageInfoExt;
 
 /**
  *@Description:sys_role
@@ -10,7 +8,7 @@ import java.io.Serializable;
  *@version 1.0,
  *@date 2018-07-06 15:26:11
  */
-public class SysRoleVo implements Serializable{
+public class SysRoleParam extends PageInfoExt {
 
 	private static final long serialVersionUID = 1L;
 

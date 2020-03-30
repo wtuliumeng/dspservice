@@ -1,9 +1,7 @@
-package com.dsp.web.model.admin;
-
+package com.dsp.web.model.system;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class TreeNodeVo {
     private String id;

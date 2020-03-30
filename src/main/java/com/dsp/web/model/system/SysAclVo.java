@@ -1,9 +1,14 @@
-package com.dsp.web.model.admin;
+package com.dsp.web.model.system;
 
 
-import com.dsp.web.model.vo.PageInfoExt;
+import java.io.Serializable;
 
-public class SysAclParam  extends PageInfoExt {
+/**
+ * Created by Administrator on 2018/7/18.
+ */
+
+public class SysAclVo implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     /**主键*/
@@ -27,6 +32,7 @@ public class SysAclParam  extends PageInfoExt {
     /**VERSION*/
     private Long version;
 
+    private String[] resourceids;
 
     public Long getId() {
         return id;
@@ -82,5 +88,13 @@ public class SysAclParam  extends PageInfoExt {
 
     public void setVersion(Long version) {
         this.version = version;
+    }
+
+    public String[] getResourceids() {
+        return resourceids;
+    }
+
+    public void setResourceids(String[] resourceids) {
+        this.resourceids = resourceids;
     }
 }

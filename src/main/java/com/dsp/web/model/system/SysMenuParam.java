@@ -1,7 +1,7 @@
-package com.dsp.web.model.admin;
-
+package com.dsp.web.model.system;
 
 import java.io.Serializable;
+
 
 public class SysMenuParam implements Serializable {
 

@@ -1,10 +1,8 @@
-package com.dsp.web.model.admin;
-
+package com.dsp.web.model.system;
 
 import com.dsp.web.model.vo.PageInfoExt;
 
-public class SysRoleUserParam extends PageInfoExt {
-
+public class SysAclParam  extends PageInfoExt {
     private static final long serialVersionUID = 1L;
 
     /**主键*/
@@ -13,14 +11,14 @@ public class SysRoleUserParam extends PageInfoExt {
     /**ROLE_ID*/
     private Long roleId;
 
-    /**TARGET_ID*/
-    private Long targetId;
+    /**RESOURE_ID*/
+    private Long resoureId;
+
+    /**ACCESSIBILITY*/
+    private Long accessibility;
 
     /**APP_ID*/
     private Long appId;
-
-    /**TARGET_TYPE*/
-    private String targetType;
 
     /**VALIDATE_STATE*/
     private String validateState;
@@ -44,12 +42,20 @@ public class SysRoleUserParam extends PageInfoExt {
         this.roleId = roleId;
     }
 
-    public Long getTargetId() {
-        return targetId;
+    public Long getResoureId() {
+        return resoureId;
     }
 
-    public void setTargetId(Long targetId) {
-        this.targetId = targetId;
+    public void setResoureId(Long resoureId) {
+        this.resoureId = resoureId;
+    }
+
+    public Long getAccessibility() {
+        return accessibility;
+    }
+
+    public void setAccessibility(Long accessibility) {
+        this.accessibility = accessibility;
     }
 
     public Long getAppId() {
@@ -58,14 +64,6 @@ public class SysRoleUserParam extends PageInfoExt {
 
     public void setAppId(Long appId) {
         this.appId = appId;
-    }
-
-    public String getTargetType() {
-        return targetType;
-    }
-
-    public void setTargetType(String targetType) {
-        this.targetType = targetType;
     }
 
     public String getValidateState() {
