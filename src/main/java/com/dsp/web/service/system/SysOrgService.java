@@ -7,13 +7,13 @@ import com.dsp.web.model.vo.ResponseResult;
 import java.util.List;
 
 public interface SysOrgService {
-    ResponseResult<Object> updateSysOrg(SysOrgVo vo);
+    boolean updateSysOrg(SysOrgVo vo);
 
-    ResponseResult<Object> insertSysOrg(SysOrgVo vo);
+    boolean insertSysOrg(SysOrgVo vo);
 
     List<SysOrgVo> querySysOrgList(SysOrgParam vo);
 
-    ResponseResult<Object> querySysOrgByPrimaryKey(String orgid);
+    SysOrgVo querySysOrgByPrimaryKey(String orgid);
 
-    ResponseResult deleteOrgByID(String orgid);
+    boolean deleteOrgByID(String orgid);
 }

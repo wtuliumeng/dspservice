@@ -31,12 +31,15 @@ public class SysOrgController {
         try{
             if(vo!=null&&vo.getId()>0)
             {
-                result=sysOrgService.updateSysOrg(vo);
+                sysOrgService.updateSysOrg(vo);
+                result.setMessage("更新成功");
             }
             else
             {
-                result=sysOrgService.insertSysOrg(vo);
+                sysOrgService.insertSysOrg(vo);
+                result.setMessage("新增成功");
             }
+            result.setStatus(Status.SUCCESS);
             return result;
         }catch (Exception ex) {
             //log.error(ex.getMessage(), ex);
@@ -68,7 +71,9 @@ public class SysOrgController {
     public ResponseResult<Object> querySysOrg(@RequestParam("") String orgid)throws Exception {
         ResponseResult<Object> result = new ResponseResult<>();
         try {
-            result=sysOrgService.querySysOrgByPrimaryKey(orgid);
+            SysOrgVo sysOrgVo = sysOrgService.querySysOrgByPrimaryKey(orgid);
+            result.setData(sysOrgVo);
+            result.setMessage("查询成功");
             result.setStatus(Status.SUCCESS);
             return result;
         } catch (Exception ex) {
@@ -84,8 +89,9 @@ public class SysOrgController {
     public ResponseResult deleteSysOrg(@RequestParam("") String orgid)throws Exception {
         ResponseResult result = new ResponseResult<>();
         try {
-            result=sysOrgService.deleteOrgByID(orgid);
+            sysOrgService.deleteOrgByID(orgid);
             result.setStatus(Status.SUCCESS);
+            result.setMessage("删除成功");
             return result;
         } catch (Exception ex) {
             //log.error(ex.getMessage(), ex);
