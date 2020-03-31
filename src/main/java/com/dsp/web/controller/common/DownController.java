@@ -29,7 +29,7 @@ public class DownController {
     public void getDown(@RequestBody String strId,
                         HttpServletResponse response){
         try {
-            Resource resource = new ClassPathResource("采集服务监控详情.xlsx");
+            Resource resource = new ClassPathResource("/resources/采集服务监控详情.xlsx");
             File file = resource.getFile();
             String filename = resource.getFilename();
             InputStream inputStream = new FileInputStream(file);
