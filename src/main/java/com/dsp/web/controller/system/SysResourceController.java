@@ -30,7 +30,7 @@ public class SysResourceController {
 
 
     /**
-     * 取得单个业务对象
+     * 按主键取得单个资源对象
      *
      * @return
      */
@@ -53,7 +53,7 @@ public class SysResourceController {
     }
 
     /**
-     * 取得List业务对象
+     * 取得资源列表树
      *
      * @return
      */
@@ -109,7 +109,7 @@ public class SysResourceController {
     @ResponseBody
     @RequestMapping(value = "/saveSysResource", method = RequestMethod.POST)
     //@ApiOperation(value = "新增对象数据", notes = "返回结果,SUCCESS:200,FAILED:500", httpMethod = "POST")
-    public ResponseResult insertSysResource(@RequestBody SysResourceVo obj) throws Exception {
+    public ResponseResult saveSysResource(@RequestBody SysResourceVo obj) throws Exception {
         ResponseResult result = new ResponseResult();
         try {
             obj.setValidateState("1");
