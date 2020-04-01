@@ -1,4 +1,4 @@
-package com.dsp.web.model.monitorCenter;
+package com.dsp.web.model.mon;
 
 import com.dsp.web.model.vo.PageInfoExt;
 
@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by zhouyang on 2020/3/26.
  */
-public class DataSearchParam extends PageInfoExt {
+public class AsyExchangeParam extends PageInfoExt {
     private String name;
     private String sqlname;
     private String switcsystem;

@@ -1,8 +1,8 @@
 package com.dsp.web.service.monitorCenter.impl;
 
 
-import com.dsp.web.model.monitorCenter.QuerySearch;
-import com.dsp.web.service.monitorCenter.DataSearchService;
+import com.dsp.web.model.mon.RealCall;
+import com.dsp.web.service.monitorCenter.RealCallService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,11 +13,11 @@ import java.text.SimpleDateFormat;
  * Created by zhouyang on 2020/3/26.
  */
 @Service
-public class DataSearchServiceImpl implements DataSearchService {
+public class RealCallServiceImpl implements RealCallService {
 
     @Override
-    public List<QuerySearch> getdataSearchList(String querynumber, String tasknumber, String callsystem, String status, Date rundate, int currentPage, int pageSize) {
-        List<QuerySearch> querySearchList = new ArrayList<>();
+    public List<RealCall> getdataSearchList(String querynumber, String tasknumber, String callsystem, String status, Date rundate, int currentPage, int pageSize) {
+        List<RealCall> querySearchList = new ArrayList<>();
 
         /* 造假数据 */
         //假设造假数据总共16条
@@ -29,7 +29,7 @@ public class DataSearchServiceImpl implements DataSearchService {
             Date date = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String time=sdf.format(date);
-            QuerySearch querySearch = new QuerySearch();
+            RealCall querySearch = new RealCall();
             querySearch.setQuerynumber("" + (start + i));//查询编号
             querySearch.setTasknumber("" + (start + i));//任务编号
             querySearch.setCallsystem("dsp"+(start+i));//调用方系统

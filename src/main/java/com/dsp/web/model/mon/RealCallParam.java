@@ -1,4 +1,4 @@
-package com.dsp.web.model.monitorCenter;
+package com.dsp.web.model.mon;
 
 import com.dsp.web.model.vo.PageInfoExt;
 
@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by zhouyang on 2020/3/26.
  */
-public class QuerySearchParam extends PageInfoExt {
+public class RealCallParam extends PageInfoExt {
     //﻿查询编号
     private String querynumber;
     //﻿任务编号

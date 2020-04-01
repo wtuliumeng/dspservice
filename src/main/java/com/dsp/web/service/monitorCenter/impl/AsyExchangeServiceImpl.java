@@ -1,8 +1,7 @@
 package com.dsp.web.service.monitorCenter.impl;
 
-import com.dsp.web.model.monitorCenter.DataSearch;
-import com.dsp.web.model.monitorCenter.OnSearch;
-import com.dsp.web.service.monitorCenter.QueryDataSearchService;
+import com.dsp.web.model.mon.AsyExchange;
+import com.dsp.web.service.monitorCenter.AsyExchangeService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,10 +11,10 @@ import java.util.Date;
  * Created by zhouyang on 2020/3/26.
  */
 @Service
-public class QueryDataSearchServiceImpl implements QueryDataSearchService {
+public class AsyExchangeServiceImpl implements AsyExchangeService {
     @Override
-    public List<DataSearch> getquerySearchList(String name, String sqlname, String switcsystem,String resource,Date rundate, int currentPage, int pageSize) {
-        List<DataSearch> dataSearchList = new ArrayList<>();
+    public List<AsyExchange> getquerySearchList(String name, String sqlname, String switcsystem, String resource, Date rundate, int currentPage, int pageSize) {
+        List<AsyExchange> dataSearchList = new ArrayList<>();
 
         /* 造假数据 */
         //假设造假数据总共16条
@@ -24,7 +23,7 @@ public class QueryDataSearchServiceImpl implements QueryDataSearchService {
         for (int i = 0; i < pageSize; i++) {
             if ((start + i) > 16)
                 break;
-            DataSearch dataSearch = new DataSearch();
+            AsyExchange dataSearch = new AsyExchange();
             dataSearch.setNumber("" + (start + i));
             dataSearch.setSqlnumber("" + (start + i));
             dataSearch.setSwitchsystem("dsp"+(start+i));

@@ -1,9 +1,9 @@
-package com.dsp.web.model.monitorCenter;
+package com.dsp.web.model.mon;
 
 /**
  * Created by zhouyang on 2020/3/26.
  */
-public class DataSearch {
+public class AsyExchange {
     private String number;
     private String sqlnumber;
     private String switchsystem;

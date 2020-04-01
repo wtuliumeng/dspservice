@@ -1,12 +1,10 @@
-package com.dsp.web.controller.MonitorCenter;
+package com.dsp.web.controller.mon;
 
 import com.dsp.web.common.enums.Status;
-import com.dsp.web.model.monitorCenter.DataSearch;
-import com.dsp.web.model.monitorCenter.DataSearchParam;
-import com.dsp.web.model.monitorCenter.QuerySearch;
-import com.dsp.web.model.monitorCenter.QuerySearchParam;
+import com.dsp.web.model.mon.RealCall;
+import com.dsp.web.model.mon.RealCallParam;
 import com.dsp.web.model.vo.ResponseResult;
-import com.dsp.web.service.monitorCenter.DataSearchService;
+import com.dsp.web.service.monitorCenter.RealCallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,16 +20,16 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value="/mon-api")
-public class DataSearchController {
+public class RealCallController {
     @Autowired
-    private DataSearchService dataSearchService;
+    private RealCallService dataSearchService;
 
     @RequestMapping(value = "/dataSearchList",method = RequestMethod.POST)
-    public ResponseResult<QuerySearch> dataSearchList(@RequestBody QuerySearchParam querySearchParam) throws Exception {
-        ResponseResult<QuerySearch> result = new ResponseResult<>();
+    public ResponseResult<RealCall> dataSearchList(@RequestBody RealCallParam querySearchParam) throws Exception {
+        ResponseResult<RealCall> result = new ResponseResult<>();
         try {
             //BatchAuth batchAuth = new BatchAuth();
-            List<QuerySearch> querySearchArrayList = new ArrayList<>();
+            List<RealCall> querySearchArrayList = new ArrayList<>();
 
             //查询参数
             String querynumber = querySearchParam.getQuerynumber();
