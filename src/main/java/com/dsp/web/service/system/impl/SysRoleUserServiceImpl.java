@@ -39,10 +39,14 @@ public class SysRoleUserServiceImpl implements SysRoleUserService {
             vo1.setTargetId(1L);
             vo1.setUserName("管理员");
             vo1.setId(101L);
+            vo1.setRoleName("系统角色");
+            vo1.setRoleCode("kf_admin");
             vos.add(vo1);
             SysRoleUserVo vo2 = new SysRoleUserVo();
             vo2.setTargetId(2L);
             vo2.setUserName("电话银行");
+            vo2.setRoleName("第三方角色");
+            vo2.setRoleCode("kf_aicc");
             vo2.setId(102L);
             vos.add(vo2);
         }
