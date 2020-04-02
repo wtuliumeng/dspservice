@@ -1,11 +1,11 @@
-package com.dsp.web.model.monitorCenter;
+package com.dsp.web.model.mon;
 
 import java.util.Date;
 
 /**
  * Created by zhouyang on 2020/3/26.
  */
-public class QuerySearch {
+public class RealCall {
     //﻿查询编号
     private String querynumber;
     //﻿任务编号

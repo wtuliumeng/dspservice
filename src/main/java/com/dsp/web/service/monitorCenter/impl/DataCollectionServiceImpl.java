@@ -1,22 +1,21 @@
 package com.dsp.web.service.monitorCenter.impl;
 
-import com.dsp.web.model.monitorCenter.OnSearch;
-import com.dsp.web.service.monitorCenter.MonitorCenterService;
+import com.dsp.web.model.mon.DataCollection;
+import com.dsp.web.service.monitorCenter.DataCollectionService;
 import org.springframework.stereotype.Service;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  * Created by zhouyang on 2020/3/24.
  */
 @Service
-public class MonitorCenterServiceImpl implements MonitorCenterService {
+public class DataCollectionServiceImpl implements DataCollectionService {
     @Override
-    public List<OnSearch> getSearchList(String sqlId, String name, String resource, int currentPage, int pageSize) {
-        List<OnSearch> onSearchList = new ArrayList<>();
+    public List<DataCollection> getSearchList(String sqlId, String name, String resource, int currentPage, int pageSize) {
+        List<DataCollection> onSearchList = new ArrayList<>();
 
         /* 造假数据 */
         //假设造假数据总共16条
@@ -25,7 +24,7 @@ public class MonitorCenterServiceImpl implements MonitorCenterService {
         for (int i = 0; i < pageSize; i++) {
             if ((start + i) > 16)
                 break;
-            OnSearch onSearch = new OnSearch();
+            DataCollection onSearch = new DataCollection();
             onSearch.setName("" + (start + i));
             onSearch.setSqlId("" + (start + i));
             onSearch.setCreatetime("" + (start + i));

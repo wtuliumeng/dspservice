@@ -1,10 +1,10 @@
-package com.dsp.web.controller.MonitorCenter;
+package com.dsp.web.controller.mon;
 
 import com.dsp.web.common.enums.Status;
-import com.dsp.web.model.monitorCenter.DataSearch;
-import com.dsp.web.model.monitorCenter.DataSearchParam;
+import com.dsp.web.model.mon.AsyExchange;
+import com.dsp.web.model.mon.AsyExchangeParam;
 import com.dsp.web.model.vo.ResponseResult;
-import com.dsp.web.service.monitorCenter.QueryDataSearchService;
+import com.dsp.web.service.monitorCenter.AsyExchangeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,16 +21,16 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value="/mon-api")
-public class QueryDataSearchController {
+public class AsyExchangeController {
     @Autowired
-    private QueryDataSearchService queryDataSearchService;
+    private AsyExchangeService queryDataSearchService;
 
     @RequestMapping(value = "/queryDataSearchList",method = RequestMethod.POST)
-    public ResponseResult<DataSearch> queryDataSearchList(@RequestBody DataSearchParam dataSearchParam) throws Exception {
-        ResponseResult<DataSearch> result = new ResponseResult<>();
+    public ResponseResult<AsyExchange> queryDataSearchList(@RequestBody AsyExchangeParam dataSearchParam) throws Exception {
+        ResponseResult<AsyExchange> result = new ResponseResult<>();
         try {
             //BatchAuth batchAuth = new BatchAuth();
-            List<DataSearch> dataSearchList = new ArrayList<>();
+            List<AsyExchange> dataSearchList = new ArrayList<>();
 
             //查询参数
             String name = dataSearchParam.getName();

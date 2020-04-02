@@ -1,10 +1,10 @@
-package com.dsp.web.controller.MonitorCenter;
+package com.dsp.web.controller.mon;
 
 import com.dsp.web.common.enums.Status;
-import com.dsp.web.model.monitorCenter.OnSearch;
-import com.dsp.web.model.monitorCenter.OnSearchParam;
+import com.dsp.web.model.mon.DataCollection;
+import com.dsp.web.model.mon.DataCollectionParam;
 import com.dsp.web.model.vo.ResponseResult;
-import com.dsp.web.service.monitorCenter.MonitorCenterService;
+import com.dsp.web.service.monitorCenter.DataCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,16 +20,16 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value="/mon-api")
-public class MonitorCenterController {
+public class DataCollectionController {
     @Autowired
-    private MonitorCenterService monitorCenterService;
+    private DataCollectionService monitorCenterService;
 
     @RequestMapping(value = "/querySearchList",method = RequestMethod.POST)
-    public ResponseResult<OnSearch> querySearchList(@RequestBody OnSearchParam onSearchParam) throws Exception {
-        ResponseResult<OnSearch> result = new ResponseResult<>();
+    public ResponseResult<DataCollection> querySearchList(@RequestBody DataCollectionParam onSearchParam) throws Exception {
+        ResponseResult<DataCollection> result = new ResponseResult<>();
         try {
             //BatchAuth batchAuth = new BatchAuth();
-            List<OnSearch> onSearchList = new ArrayList<>();
+            List<DataCollection> onSearchList = new ArrayList<>();
 
             //查询参数
             String sqlId = onSearchParam.getSqlId();

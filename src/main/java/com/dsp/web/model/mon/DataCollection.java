@@ -1,11 +1,11 @@
-package com.dsp.web.model.monitorCenter;
+package com.dsp.web.model.mon;
 
 import java.util.Date;
 
 /**
  * Created by zhouyang on 2020/3/24.
  */
-public class OnSearch {
+public class DataCollection {
     private String name;
     private String sqlId;
     private String createtime;

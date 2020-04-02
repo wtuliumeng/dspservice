@@ -1,11 +1,11 @@
-package com.dsp.web.model.monitorCenter;
+package com.dsp.web.model.mon;
 
 import com.dsp.web.model.vo.PageInfoExt;
 
 /**
  * Created by zhouyang on 2020/3/24.
  */
-public class OnSearchParam extends PageInfoExt {
+public class DataCollectionParam extends PageInfoExt {
 
     public String sqlId;
     public String name;
