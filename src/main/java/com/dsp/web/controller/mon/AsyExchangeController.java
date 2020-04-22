@@ -49,8 +49,8 @@ public class AsyExchangeController {
                 message = "查询用户配置成功";
                 result.setDataList(dataSearchList);
                 result.setStatus(Status.SUCCESS);
-                System.out.println(currentPage);
-                System.out.println(pageSize);
+                //System.out.println(currentPage);
+                //System.out.println(pageSize);
             } catch (Exception e) {
                 result.setStatus(Status.FAILED);
                 message = "查询用户配置异常";
